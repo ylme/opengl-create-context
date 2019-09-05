@@ -165,6 +165,8 @@ _create_window(HINSTANCE inst, int width, int height)
 
     _destroy_context(fake_wnd, fake_dc, fake_ctx);
 
+    // Connect current OpenGL context with Windows device context for Opengl commands to work.
+    // Application use commands through render context to draw to a device context.
     assert(wglMakeCurrent(real_dc, real_ctx));
     glloading_init();
     glViewport(0, 0, width, height);
